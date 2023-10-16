@@ -33,11 +33,11 @@ def plot_blackjack_values(V):
     get_figure(False, ax)
     plt.show()
 
-def plot_policy(policy):
 
+def plot_policy(policy):
     def get_Z(x, y, usable_ace):
-        if (x,y,usable_ace) in policy:
-            return policy[x,y,usable_ace]
+        if (x, y, usable_ace) in policy:
+            return policy[x, y, usable_ace]
         else:
             return 1
 
@@ -45,7 +45,7 @@ def plot_policy(policy):
         x_range = np.arange(11, 22)
         y_range = np.arange(10, 0, -1)
         X, Y = np.meshgrid(x_range, y_range)
-        Z = np.array([[get_Z(x,y,usable_ace) for x in x_range] for y in y_range])
+        Z = np.array([[get_Z(x, y, usable_ace) for x in x_range] for y in y_range])
         surf = ax.imshow(Z, cmap=plt.get_cmap('Pastel2', 2), vmin=0, vmax=1, extent=[10.5, 21.5, 0.5, 10.5])
         plt.xticks(x_range)
         plt.yticks(y_range)
@@ -55,9 +55,9 @@ def plot_policy(policy):
         ax.grid(color='w', linestyle='-', linewidth=1)
         divider = make_axes_locatable(ax)
         cax = divider.append_axes("right", size="5%", pad=0.1)
-        cbar = plt.colorbar(surf, ticks=[0,1], cax=cax)
-        cbar.ax.set_yticklabels(['0 (STICK)','1 (HIT)'])
-            
+        cbar = plt.colorbar(surf, ticks=[0, 1], cax=cax)
+        cbar.ax.set_yticklabels(['0 (STICK)', '1 (HIT)'])
+
     fig = plt.figure(figsize=(15, 15))
     ax = fig.add_subplot(121)
     ax.set_title('Usable Ace')
