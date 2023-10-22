@@ -2,8 +2,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 
-def plot_blackjack_values(V):
 
+"""
+    Method written by Donal Byrne to show the value function for the blackjack game
+"""
+def plot_blackjack_values(V):
     def get_Z(x, y, usable_ace):
         if (x,y,usable_ace) in V:
             return V[x,y,usable_ace]
@@ -32,6 +35,11 @@ def plot_blackjack_values(V):
     get_figure(False, ax)
     plt.show()
 
+
+"""
+    Method written by Donal Byrne to show the policy for the blackjack game
+    Slightly adapted by us, to display a clearer plot
+"""
 def plot_policy(policy):
     def get_Z(x,y, usable_ace):  # Swapped x and y
         if (x, y, usable_ace) in policy:  # Swapped x and y
